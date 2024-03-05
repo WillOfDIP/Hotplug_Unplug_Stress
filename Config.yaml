@@ -1,0 +1,42 @@
+metadata:
+    name: "Hotplug_Unplug_Stress " 
+    id:                                 # test case ID (system generated)
+    date_created:                       # leave blank (system generated)
+    last_modified:                      # leave blank (system generated)
+    maintainer:                         # content owners/test case developers
+        - Dipak61@gmail.com
+    
+    priority: High                      # pick one from Urgent, High, Medium, Low
+    
+    format:
+    
+    description: "This test performs 10 cycles of hotplug and unplug of an external display. Checks for TDR or BSOD. Requires Raspberry Pi Host System and relay/switch hardware."
+            
+    label:
+        - Windows
+        - Generic
+        - Display
+    
+    entrypoint:                         # this file starts the test
+        - Run_test.bat                  # runs executable with parameters
+    
+    prerequisites:                      # used to indicate what types of scripts in addition to the native shell are used
+        - Python 3
+        - ta_report_lib.py              # library
+        - ta_rtl_lib.py                 # library
+        - TightVNC
+
+
+    quality_model:
+        characteristic: Reliability
+        sub-characteristic: Fault Tolerance
+    
+    duration: 20 minutes                # machine readable value (based on the "average" time it takes to run, e.g., 24hr)
+ 
+params:
+    # parameters that can be passed to the test case here - specify type also
+    
+    # This test will quit after running for specified runtime (in minutes).
+    runtime: 
+        default_value: 20
+        description: The specified runtime (in minutes) at which this test will quit after.
